@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DVLD.People
+{
+    public partial class frmPersonDetails : Form
+    {
+        public frmPersonDetails(int PersonID)
+        {
+            InitializeComponent();
+            ctrlPersonCard1.LoadPerson(PersonID);
+        }
+        public frmPersonDetails(string NationalNo)
+        {
+            InitializeComponent();
+            ctrlPersonCard1.LoadPerson(NationalNo);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmPersonDetails_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
