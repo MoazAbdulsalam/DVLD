@@ -111,9 +111,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Location = new System.Drawing.Point(43, 458);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(299, 16);
+            this.label5.Size = new System.Drawing.Size(269, 16);
             this.label5.TabIndex = 23;
-            this.label5.Text = "جميع الحقوق محفوظة الباشمهندس عمك معاذ 2026 ";
+            this.label5.Text = "جميع الحقوق محفوظة الباشمهندس معاذ 2026 ";
             // 
             // btnLogIn
             // 

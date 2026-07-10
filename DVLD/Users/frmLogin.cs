@@ -19,42 +19,12 @@ namespace DVLD.Users
     
         
         clsUser _User;
-        string _FilePath = @"D:\source\repos\c# course 19\DVLD\Login.txt";
         public frmLogin()
         {
             InitializeComponent();
 
         }
         
-        private string Encrypt(string txt,char key='k')
-        {
-            StringBuilder Result = new StringBuilder();
-            foreach (char c in txt)
-            {
-                Result.Append((char)( c ^ key));
-            }
-            return Result.ToString();
-        }
-        private string Decrypt(string txt ,char key='k')
-        {
-            return Encrypt(txt, key);
-        }
-        private void RememberMe()
-        {
-            string Data = txtbxUserName.Text + "#//#" + Encrypt(txtbxPassword.Text) + "#//#";
-            if (chbRememberMe.Checked)
-            {
-                Data += "1" + "#//#" + DateTime.Now;
-
-            }
-            else
-            {
-                Data += "0" + "#//#" + DateTime.Now;
-
-            }
-            File.AppendAllText(_FilePath, Data + Environment.NewLine);
-
-        }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
@@ -69,8 +39,14 @@ namespace DVLD.Users
                 MessageBox.Show("User IS Not Active ,Contact Your Admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (chbRememberMe.Checked)
+                clsGlobals.RememberUserNameAndPassword(txtbxUserName.Text.Trim(), txtbxPassword.Text.Trim());
+            else
+                clsGlobals.RememberUserNameAndPassword("","");
 
-                RememberMe();
+
+
+
             
             clsGlobals.CurrentUser = _User;
             Form frm = new MainForm(this);
@@ -85,24 +61,18 @@ namespace DVLD.Users
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
-            
-            if (File.Exists(_FilePath))
+            string USerName = "", Password = "";
+            if(clsGlobals.GetStoredCredential(ref USerName, ref Password))
             {
-                string[] lines = File.ReadAllLines(_FilePath);
-                if (lines.Length > 0)
-                {
-                    string lastLine = lines[lines.Length - 1]; 
-                    string[] Data = lastLine.Split(new string[] { "#//#" }, StringSplitOptions.None);
-
-                    if (Data.Length >= 3 && Data[2] == "1")
-                    {
-                        txtbxUserName.Text = Data[0];
-                        txtbxPassword.Text = Decrypt(Data[1]);
-                        chbRememberMe.Checked = true;
-                    }
-                }
+                txtbxPassword.Text = Password;
+                txtbxUserName.Text = USerName;
+                chbRememberMe.Checked = true;
             }
+            else
+            chbRememberMe.Checked = false;
+
+
+
 
         }
         public  void Clear()
