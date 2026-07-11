@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -52,6 +53,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsLocalDrivingLicenseApplicationData → GetLocalDrivingLicenseApplicationInfoByID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -101,6 +106,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsLocalDrivingLicenseApplicationData → GetLocalDrivingLicenseApplicationInfoByApplicationID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -145,7 +154,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsLocalDrivingLicenseApplicationData → GetAllLocalDrivingLicenseApplications";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -189,7 +201,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsLocalDrivingLicenseApplicationData → AddNewLocalDrivingLicenseApplication";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
 
             }
 
@@ -230,7 +245,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsLocalDrivingLicenseApplicationData → UpdateLocalDrivingLicenseApplication";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 
@@ -265,7 +283,9 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                string Location = "clsLocalDrivingLicenseApplicationData → DeleteLocalDrivingLicenseApplication";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -306,7 +326,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                
+
+                string Location = "clsLocalDrivingLicenseApplicationData → DoesPassTest";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
 
             }
 
@@ -347,6 +370,8 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
+                string Location = "clsLocalDrivingLicenseApplicationData → DoesAttendTest";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
 
             }
 
@@ -392,7 +417,8 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                string Location = "clsLocalDrivingLicenseApplicationData → TotalTrialsPerTest";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
 
             }
 
@@ -441,6 +467,9 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
+
+                string Location = "clsLocalDrivingLicenseApplicationData → IsThereAnActiveScheduledTest";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
 
             }
 

@@ -1,10 +1,8 @@
 ﻿using DVLDBusinessLayer;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Shared;
 
 namespace DVLD.Classes
 {
@@ -35,7 +33,12 @@ namespace DVLD.Classes
                 Registry.SetValue(keyPath, "Password", Encrypt(password));
                 return true;
             }
-            catch { return false; }
+            catch (Exception ex) 
+            {
+                string Location = "clsGlobals → RememberUserNameAndPassword";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+                return false; 
+            }
         }
         public static bool GetStoredCredential(ref string username, ref string password)
         {
@@ -48,7 +51,13 @@ namespace DVLD.Classes
                 else
                     password = Decrypt(EncPassword);
             }
-            catch { return false; }
+            catch (Exception ex)
+            {
+                string Location = "clsGlobals → GetStoredCredential";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
+                return false;
+            }
             return true;
         }
     }

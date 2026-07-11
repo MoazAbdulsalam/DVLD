@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -55,7 +56,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsLicenseClassesData → GetLicenseClassByID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -107,6 +111,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsLicenseClassesData → GetLicenseClassInfoByClassName";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -144,6 +152,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
+
+                string Location = "clsLicenseClassesData → GetAllLicenseClasses";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -195,7 +207,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsLicenseClassesData → AddNewLicenseClass";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
 
             }
 
@@ -240,7 +255,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsLicenseClassesData → UpdateLicenseClass";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 

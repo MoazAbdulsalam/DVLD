@@ -474,6 +474,10 @@
       <Project>{d867ceea-3820-49cf-b907-a57257abbd68}</Project>
       <Name>DVLDBusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{d170c6ae-ebf6-4843-aac0-6c6b3d2336ab}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Male 512.png" />

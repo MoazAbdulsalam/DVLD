@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,6 +40,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsInternationalLicensesData → GetInternationalLicenseByID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 found = false;
             }
             finally
@@ -79,6 +84,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsInternationalLicensesData → GetInternationalLicenseByID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -120,6 +129,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsInternationalLicensesData → UpdateInternationalLicense";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
             finally
@@ -146,6 +159,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsInternationalLicensesData → GetDriverActiveInternationalLicenseID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 InternationalLicenseID = -1;
             }
             finally
@@ -168,6 +185,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsInternationalLicensesData → DeActivate";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 
@@ -208,7 +229,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsInternationalLicensesData → GetAllInternationalLicenses";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -249,6 +273,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
+
+                string Location = "clsInternationalLicensesData → GetAllDriverInternationalLicenses";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {

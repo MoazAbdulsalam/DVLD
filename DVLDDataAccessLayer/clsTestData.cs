@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -34,6 +35,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsTestData → GetTestByTestID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 found = false;
             }
             finally
@@ -103,7 +108,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsTestData → GetLastTestByPersonAndTestTypeAndLicenseClass";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -150,6 +158,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsTestData → UpdateTest";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 
@@ -203,6 +215,9 @@ namespace DVLDDataAccessLayer
             catch (Exception ex)
             {
 
+                string Location = "clsTestData → AddNewTest";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
 
             finally
@@ -241,7 +256,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsTestData → GetAllTests";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -281,7 +299,9 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsTestData → GetPassedTestCount";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
 
             }
 

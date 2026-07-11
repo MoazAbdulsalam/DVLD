@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -33,6 +34,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsCountryData → GetCountryInfoById";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 IsFound = false;
             }
             finally
@@ -62,6 +67,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsCountryData → GetCountryInfoByName";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 IsFound = false;
             }
             finally
@@ -90,6 +99,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsCountryData → GetAllCountries";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return dt;
             }
             finally

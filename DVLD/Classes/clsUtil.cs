@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.IO;
 using System.Windows.Forms;
 
@@ -31,6 +32,8 @@ namespace DVLD.Classes
                 }
                 catch (Exception ex)
                 {
+                    string Location = "clsUtil → CreateFolderIfNotExist";
+                    clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
                     MessageBox.Show("Error creating folder: " + ex.Message);
                     return false;
                 }
@@ -52,6 +55,8 @@ namespace DVLD.Classes
             }
             catch (IOException iox)
             {
+                string Location = "clsUtil → CopyImageToProjectImagesFolder";
+                clsEventLogger.LogEvent(iox, Location, System.Diagnostics.EventLogEntryType.Error);
                 MessageBox.Show(iox.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }

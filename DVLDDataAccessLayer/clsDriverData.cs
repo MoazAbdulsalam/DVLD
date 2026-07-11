@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsDriverData → GetDriverInfoByDriverID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -97,6 +102,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsDriverData → GetDriverInfoByPersonID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -140,7 +149,9 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsDriverData → AddNewDriver";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
 
             }
 
@@ -181,6 +192,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsDriverData → UpdateDriver";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 
@@ -213,6 +228,9 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+                string Location = "clsDriverData → Delete";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 
@@ -251,6 +269,9 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
+                string Location = "clsDriverData → GetAllDrivers";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -272,8 +293,12 @@ namespace DVLDDataAccessLayer
                 SqlDataReader reader = command.ExecuteReader();
                 isfound = reader.HasRows;
             }
-            catch
+            catch(Exception ex) 
             {
+
+                string Location = "clsDriverData → IsPersonDriver";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isfound = false;
             }
             finally { connection.Close(); }
@@ -294,8 +319,12 @@ namespace DVLDDataAccessLayer
                 SqlDataReader reader = command.ExecuteReader();
                 isfound = reader.HasRows;
             }
-            catch
+            catch(Exception ex) 
             {
+
+                string Location = "clsDriverData → IsDriverExist";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isfound = false;
             }
             finally { connection.Close(); }

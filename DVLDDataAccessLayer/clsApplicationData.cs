@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+using Shared;
 
 namespace DVLDDataAccessLayer
 {
@@ -60,7 +56,9 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                string Location = "clsApplicationData → GetApplicationInfoByID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -100,7 +98,9 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                string Location = "clsApplicationData → GetAllApplications";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -156,7 +156,8 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                string Location = "clsApplicationData → AddNewApplication";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
 
             }
 
@@ -207,7 +208,9 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                string Location = "clsApplicationData → UpdateApplication";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 
@@ -242,7 +245,9 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                string Location = "clsApplicationData → DeleteApplication";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -277,7 +282,9 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                string Location = "clsApplicationData → IsApplicationExist";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -320,6 +327,8 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+                string Location = "clsApplicationData → GetActiveApllicationID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
                 return ID;
 
             }
@@ -361,6 +370,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsApplicationData → GetActiveApplicationIDForLicenseClass";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return ID;
 
             }
@@ -397,6 +410,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsApplicationData → UpdateStatus";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 
@@ -442,6 +459,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsApplicationData → GetCompletedApplicationID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return ID;
 
             }

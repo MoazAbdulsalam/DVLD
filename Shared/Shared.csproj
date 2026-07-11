@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{30EC983C-25E3-447C-946E-33F57DE688B8}</ProjectGuid>
+    <ProjectGuid>{D170C6AE-EBF6-4843-AAC0-6C6B3D2336AB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DVLDDataAccessLayer</RootNamespace>
-    <AssemblyName>DVLDDataAccessLayer</AssemblyName>
+    <RootNamespace>Shared</RootNamespace>
+    <AssemblyName>Shared</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,28 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsApplicationData.cs" />
-    <Compile Include="clsApplicationTypesData.cs" />
-    <Compile Include="clsCountryData.cs" />
-    <Compile Include="clsDataAccessSettings.cs" />
-    <Compile Include="clsDetainedLicensesData.cs" />
-    <Compile Include="clsDriverData.cs" />
-    <Compile Include="clsInternationalLicensesData.cs" />
-    <Compile Include="clsLicenseClassesData.cs" />
-    <Compile Include="clsLicenseData.cs" />
-    <Compile Include="clsLocalDrivingLicenseApplicationData.cs" />
-    <Compile Include="clsPeopleData.cs" />
-    <Compile Include="clsTestAppointmentData.cs" />
-    <Compile Include="clsTestData.cs" />
-    <Compile Include="clsTestTypesData.cs" />
-    <Compile Include="clsUsersData.cs" />
+    <Compile Include="clsEventLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Shared\Shared.csproj">
-      <Project>{d170c6ae-ebf6-4843-aac0-6c6b3d2336ab}</Project>
-      <Name>Shared</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

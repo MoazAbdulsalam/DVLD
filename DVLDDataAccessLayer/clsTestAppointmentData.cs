@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
@@ -51,6 +52,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsTestAppointmentData → GetTestAppointmentByID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -117,7 +122,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsTestAppointmentData → GetLastTestAppointment";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -157,6 +165,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
+
+                string Location = "clsTestAppointmentData → GetAllTestAppointments";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -199,6 +211,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
+
+                string Location = "clsTestAppointmentData → GetAllTestAppointmentsForTestTypeForApplication";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -252,7 +268,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsTestAppointmentData → AddNewTestAppointment";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
 
             }
 
@@ -311,6 +330,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsTestAppointmentData → UpdateTestAppointment";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 
@@ -349,7 +372,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsTestAppointmentData → GetTestID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
 
             }
 
@@ -379,6 +405,9 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+                string Location = "clsTestAppointmentData → LockTestAppointment";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 
@@ -409,6 +438,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsTestAppointmentData → IsTestAppintmentLocked";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 

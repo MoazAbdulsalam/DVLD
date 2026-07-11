@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -40,6 +41,9 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+                string Location = "clsApplicationTypesData → GetApplicationByID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 IsFound = false;
             }
             finally
@@ -71,6 +75,9 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+                string Location = "clsApplicationTypesData → UpdateAplicationTypes";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
             finally
@@ -107,6 +114,10 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
+
+                string Location = "clsApplicationTypesData → GetAllApplecations";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally
             {
@@ -145,6 +156,8 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
+                string Location = "clsApplicationTypesData → AddNewApplication";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
 
             }
 

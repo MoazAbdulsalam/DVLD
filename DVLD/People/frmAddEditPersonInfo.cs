@@ -1,6 +1,7 @@
 ﻿using DVLD.Classes;
 using DVLD.Properties;
 using DVLDBusinessLayer;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -140,10 +141,12 @@ namespace DVLD.People
                     {
                         File.Delete(_Person.ImagePath);
                     }
-                    catch (IOException)
+                    catch (IOException iox)
                     {
                         // We could not delete the file.
-                        //log it later   
+                        //log it later
+                        string Location = "frmAddEditPersonInfo → _HandlePersonImage";
+                        clsEventLogger.LogEvent(iox, Location, System.Diagnostics.EventLogEntryType.Error);
                     }
                 }
 

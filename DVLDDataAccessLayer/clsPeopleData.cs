@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
-using System.Data.Common;
 namespace DVLDDataAccessLayer
 {
     public class clsPeopleData
@@ -53,7 +54,11 @@ namespace DVLDDataAccessLayer
             }
             catch(Exception ex)
             {
-                IsFound=false;
+
+                string Location = "clsPeopleData → GetPersonInfoById";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
+                IsFound = false;
             }
             finally
             {
@@ -103,7 +108,11 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                IsFound= false;
+
+                string Location = "clsPeopleData → GetPersonInfoByNationalNo";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
+                IsFound = false;
             }
             finally
             {
@@ -164,6 +173,9 @@ namespace DVLDDataAccessLayer
             }
             catch(Exception ex)
             {
+
+                string Location = "clsPeopleData → AddnewPerson";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally
@@ -233,6 +245,10 @@ namespace DVLDDataAccessLayer
             }
             catch( Exception ex)
             {
+
+                string Location = "clsPeopleData → UpdatePerson";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
 
             }
@@ -274,6 +290,10 @@ namespace DVLDDataAccessLayer
             }
             catch ( Exception ex )
             {
+
+                string Location = "clsPeopleData → GetAllPeople";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return dt; 
             }
             finally
@@ -299,6 +319,10 @@ namespace DVLDDataAccessLayer
             }
             catch ( Exception ex )
             {
+
+                string Location = "clsPeopleData → DeletePeron";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
             finally
@@ -325,6 +349,10 @@ namespace DVLDDataAccessLayer
             }
             catch( Exception ex )
             {
+
+                string Location = "clsPeopleData → IsPersonExist(nationalNo)";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
             finally
@@ -348,6 +376,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsPeopleData → IsPersonExist(PersonID)";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
             finally

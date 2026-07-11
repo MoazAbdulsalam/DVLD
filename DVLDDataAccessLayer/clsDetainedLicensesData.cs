@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
@@ -35,7 +35,12 @@ namespace DVLDDataAccessLayer
                     DetainID = ID;
                 }
             }
-            catch { }
+            catch (Exception ex) 
+            {
+                string Location = "clsDetainedLicensesData → AddNewDetainedLicense";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
+            }
             finally
             {
                 conn.Close();
@@ -59,7 +64,13 @@ namespace DVLDDataAccessLayer
                 }
                 reader.Close();
             }
-            catch { }
+            catch (Exception ex)
+            {
+
+                string Location = "clsDetainedLicensesData → GetAllDetainedLicenses";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
+            }
             finally { conn.Close(); }
             return table;
         }
@@ -81,7 +92,12 @@ namespace DVLDDataAccessLayer
                     isDetained = Convert.ToBoolean(Result);
                 }
             }
-            catch { }
+            catch (Exception ex) {
+
+                string Location = "clsDetainedLicensesData → IsLicenseDetained";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
+            }
             finally { conn.Close(); }
             return isDetained;
         }
@@ -129,8 +145,13 @@ namespace DVLDDataAccessLayer
                     IsFound = false;
                 reader.Close();
             }
-            catch
-            { IsFound = false; }
+            catch(Exception ex) 
+            {
+                string Location = "clsDetainedLicensesData → GetDetainedLicenseInfoByID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
+                IsFound = false; 
+            }
             finally
             {
                 conn.Close();
@@ -208,7 +229,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsDetainedLicensesData → GetDetainedLicenseInfoByLicenseID";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 isFound = false;
             }
             finally
@@ -252,7 +276,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+
+                string Location = "clsDetainedLicensesData → UpdateDetainedLicense";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
 
@@ -285,6 +312,10 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
+
+                string Location = "clsDetainedLicensesData → ReleaseDetainedLicense";
+                clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
             }
             finally
