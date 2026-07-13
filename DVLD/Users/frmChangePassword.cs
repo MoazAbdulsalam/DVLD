@@ -1,12 +1,9 @@
-﻿using DVLDBusinessLayer;
+﻿using DVLD.Classes;
+using DVLDBusinessLayer;
 using System;
-using System.Collections.Generic;
+using Shared;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace DVLD.Users
@@ -41,7 +38,7 @@ namespace DVLD.Users
 
         private void txtbxCurrentPassword_Validating(object sender, CancelEventArgs e)
         {
-            if(txtbxCurrentPassword.Text.Trim() !=_User.Password)
+            if(clsCryptography.ComputeHash( txtbxCurrentPassword.Text.Trim()) !=_User.Password)
             {
                 errorProvider1.SetError(txtbxCurrentPassword, "Wrong Password");
                 e.Cancel = true;
@@ -96,7 +93,7 @@ namespace DVLD.Users
                 return;
             }
 
-            if(_User.changePassword(txtbxNewPassword.Text.Trim()))
+            if(_User.changePassword(clsCryptography.ComputeHash(txtbxNewPassword.Text.Trim())))
             {
                 MessageBox.Show("Password Changed Succefully", "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

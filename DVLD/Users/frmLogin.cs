@@ -1,5 +1,6 @@
 ﻿using DVLD.Classes;
 using DVLDBusinessLayer;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,7 @@ namespace DVLD.Users
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            _User = clsUser.FindByUserNameAndPassword(txtbxUserName.Text, txtbxPassword.Text);
+            _User = clsUser.FindByUserNameAndPassword( txtbxUserName.Text,clsCryptography.ComputeHash( txtbxPassword.Text));
             if (_User == null)
             {
                 MessageBox.Show("UserName Or Password Is wrong","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
