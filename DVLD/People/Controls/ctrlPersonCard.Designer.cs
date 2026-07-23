@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -37,7 +36,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.lblPersonID = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblNationalNo = new System.Windows.Forms.Label();
             this.lblGendor = new System.Windows.Forms.Label();
@@ -57,6 +55,8 @@
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.gbPersonInformation = new System.Windows.Forms.GroupBox();
             this.lnklblEdit = new System.Windows.Forms.LinkLabel();
+            this.lblPersonID = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -68,16 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.gbPersonInformation.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Person ID :";
             // 
             // label2
             // 
@@ -158,16 +148,6 @@
             this.label9.Size = new System.Drawing.Size(92, 24);
             this.label9.TabIndex = 9;
             this.label9.Text = "Country :";
-            // 
-            // lblPersonID
-            // 
-            this.lblPersonID.AutoSize = true;
-            this.lblPersonID.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonID.Location = new System.Drawing.Point(139, 35);
-            this.lblPersonID.Name = "lblPersonID";
-            this.lblPersonID.Size = new System.Drawing.Size(53, 24);
-            this.lblPersonID.TabIndex = 10;
-            this.lblPersonID.Text = "[???]";
             // 
             // lblName
             // 
@@ -390,6 +370,26 @@
             this.lnklblEdit.Text = "Edit Person Info";
             this.lnklblEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblEdit_LinkClicked);
             // 
+            // lblPersonID
+            // 
+            this.lblPersonID.AutoSize = true;
+            this.lblPersonID.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonID.Location = new System.Drawing.Point(139, 35);
+            this.lblPersonID.Name = "lblPersonID";
+            this.lblPersonID.Size = new System.Drawing.Size(53, 24);
+            this.lblPersonID.TabIndex = 10;
+            this.lblPersonID.Text = "[???]";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Person ID :";
+            // 
             // ctrlPersonCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -415,7 +415,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbPersonImage;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -424,7 +423,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblPersonID;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblNationalNo;
         private System.Windows.Forms.Label lblGendor;
@@ -443,5 +441,7 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.GroupBox gbPersonInformation;
         private System.Windows.Forms.LinkLabel lnklblEdit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPersonID;
     }
 }

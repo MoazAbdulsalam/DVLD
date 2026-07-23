@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="clsCryptography.cs" />
     <Compile Include="clsEventLogger.cs" />
+    <Compile Include="clsSharedUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
