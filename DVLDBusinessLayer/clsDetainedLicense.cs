@@ -53,7 +53,7 @@ namespace DVLDBusinessLayer
             this.ReleasedByUserID = ReleasedByUserID;
             this.ReleaseApplicationID = ReleaseApplicationID;
             this.FineFees = FineFees;
-            this.ReleasedByUserInfo = clsUser.FindByPersonID(this.ReleasedByUserID);
+            this.ReleasedByUserInfo = clsUser.FindByUserID(this.ReleasedByUserID);
             this.CreatedByUserInfo = clsUser.FindByUserID(this.CreatedByUserID);
             Mode = enMode.Update;
         }
