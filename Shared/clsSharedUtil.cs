@@ -45,7 +45,7 @@ namespace Shared
 
         public static bool CopyImageToProjectImagesFolder(ref string sourceFile)
         {
-            string DestinationFolder = @"C:Billiards Club-People-Images\";
+            string DestinationFolder = @"C:DVLD-People-Images\";
             if (!CreateFolderIfNotExist(DestinationFolder))
             {
                 return false;
