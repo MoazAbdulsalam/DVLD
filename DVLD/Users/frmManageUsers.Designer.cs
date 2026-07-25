@@ -256,6 +256,7 @@
             // 
             // cbActiveFilter
             // 
+            this.cbActiveFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbActiveFilter.FormattingEnabled = true;
             this.cbActiveFilter.Items.AddRange(new object[] {
             "All",
@@ -265,6 +266,7 @@
             this.cbActiveFilter.Name = "cbActiveFilter";
             this.cbActiveFilter.Size = new System.Drawing.Size(121, 24);
             this.cbActiveFilter.TabIndex = 21;
+            this.cbActiveFilter.SelectedIndexChanged += new System.EventHandler(this.cbActiveFilter_SelectedIndexChanged);
             // 
             // frmManageUsers
             // 
