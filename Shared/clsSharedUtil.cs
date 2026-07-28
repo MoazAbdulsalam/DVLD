@@ -36,7 +36,7 @@ namespace Shared
                     string Location = "clsUtil → CreateFolderIfNotExist";
                     clsEventLogger.LogEvent(ex, Location, System.Diagnostics.EventLogEntryType.Error);
                     //return false;
-                    throw ex;
+                    throw ;
 
                 }
             }
